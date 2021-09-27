@@ -36,6 +36,16 @@
   116  sudo make install
   117  htop
 ```
+## 檔案工具 
+* du 
+ * 用來查看目錄空間用量
+* df 
+ * 列出目前已掛載分割區資訊
+* dd 
+ * 產生特定大小之檔案
+* wc 
+ * 統計 行數 節數 byte數
+* tr 取代、刪除字元
 ## 參考資料
 * [Linux】安裝軟體的三種方式--rpm、yum、原始碼包](https://www.itread01.com/content/1542075865.html)
 * [rpm指令](https://mitblog.pixnet.net/blog/post/31457516)
