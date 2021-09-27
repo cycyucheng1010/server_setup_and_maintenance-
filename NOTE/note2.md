@@ -20,7 +20,7 @@
 ## htop
 ![image](https://user-images.githubusercontent.com/62127656/134865765-521651a2-7518-4c29-9b91-81607ee8f029.png)
 ```
-102  wget https://src.fedoraproject.org/lookaside/extras/htop/htop-2.2.0.tar.gz/sha512/ec1335bf0e3e0387e5e50acbc508d0effad19c4bc1ac312419dc97b82901f4819600d6f87a91668f39d429536d17304d4b14634426a06bec2ecd09df24adc62e/htop-2.2.0.tar.gz
+  102  wget https://src.fedoraproject.org/lookaside/extras/htop/htop-2.2.0.tar.gz/sha512/ec1335bf0e3e0387e5e50acbc508d0effad19c4bc1ac312419dc97b82901f4819600d6f87a91668f39d429536d17304d4b14634426a06bec2ecd09df24adc62e/htop-2.2.0.tar.gz
   103  tar htop-2.2.0.tar.gz
   104  tar xvfz htop-2.2.0.tar.gz
   105  ./configure
