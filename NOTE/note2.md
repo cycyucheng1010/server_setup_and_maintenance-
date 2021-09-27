@@ -8,6 +8,7 @@
 
 ![image](https://user-images.githubusercontent.com/62127656/134855810-e30f5c7d-3884-4027-aee9-11b77b9f8da8.png)
 ![image](https://user-images.githubusercontent.com/62127656/134857925-f6290964-c378-4d09-990a-62e0603acc7b.png)
+![image](https://user-images.githubusercontent.com/62127656/134858133-a51dee45-2574-43d3-8211-6bbfa439f22a.png)
 
 ## linux系統下安裝軟體一般有3種方法：①rpm工具    ②yum工具    ③原始碼包安裝
 * 在Linux下安裝軟體包，主要有3種辦法
