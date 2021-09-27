@@ -7,6 +7,7 @@
 > 包名、版本資訊、版本號、執行平台
 
 ![image](https://user-images.githubusercontent.com/62127656/134855810-e30f5c7d-3884-4027-aee9-11b77b9f8da8.png)
+![image](https://user-images.githubusercontent.com/62127656/134857925-f6290964-c378-4d09-990a-62e0603acc7b.png)
 
 ## linux系統下安裝軟體一般有3種方法：①rpm工具    ②yum工具    ③原始碼包安裝
 * 在Linux下安裝軟體包，主要有3種辦法
@@ -17,3 +18,4 @@
   3. 原始碼包（需要通過編譯器把該原始碼包編譯成可執行的檔案）【安裝難度大】 ./configure---->make---->make install
 ## 參考資料
 * [Linux】安裝軟體的三種方式--rpm、yum、原始碼包](https://www.itread01.com/content/1542075865.html)
+* [rpm指令](https://mitblog.pixnet.net/blog/post/31457516)
