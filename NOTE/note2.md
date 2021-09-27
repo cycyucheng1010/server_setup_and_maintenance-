@@ -6,6 +6,8 @@
 ![image](https://user-images.githubusercontent.com/62127656/134854003-a727e846-8c51-4b36-8064-741c609f4d5e.png)
 > 包名、版本資訊、版本號、執行平台
 
+![image](https://user-images.githubusercontent.com/62127656/134855810-e30f5c7d-3884-4027-aee9-11b77b9f8da8.png)
+
 ## linux系統下安裝軟體一般有3種方法：①rpm工具    ②yum工具    ③原始碼包安裝
 * 在Linux下安裝軟體包，主要有3種辦法
   1. rpm工具（redhat package manager，手動安裝，難點在於包的依賴關係 rpm包類似於windows下的.exe檔案，安裝路徑和檔名基本都是固定的。 rpm -ivh [rpm完整包名] 
