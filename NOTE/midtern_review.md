@@ -42,20 +42,18 @@ echo 'I am $n years old'
 ```
 : I am $n years old
 
-6. 可由哪個指令得到以下執行結果?
+6. 可由哪個指令得到以下執行結果? : echo -e 'first line\n2ndline'
 
 ```
 first line 
 2nd line
 ```
 
-: echo -e 'first line\n2ndline'
-
 7. 想取得目前檔案「搜尋路徑」,可以在bash裡使用哪一個內建函數? : PATH
 8. 以下哪個指令可以產生一個亂碼? : echo $RANDOM
-9. 以下指令依序執行後，最後$n變數的值為?
+9. 以下指令依序執行後，最後$n變數的值為? : Raining
 ```
 m = 'Raining'
 n = "$m"
 ```
-: Raining
+
