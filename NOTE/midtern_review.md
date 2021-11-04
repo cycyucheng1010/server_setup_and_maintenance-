@@ -97,4 +97,3 @@ n = "$m"
 16. ```* */2 * * * echo "$date">>tmp/mylog2```
 17. dd if=/dev/zero/ of=file5m bs=1M count=5
 18. 
-19. 
