@@ -5,36 +5,51 @@
 ![1](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-1.PNG)
 ![2](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-2.PNG)
 ## From NatworkManager to network
-## ssh: scp&no password login
-### scp
-![6](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-6.PNG)
->sudo yum install openssh-server
----
-![7](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-7.PNG)
->利用clone後的linux系統進行登入，在此步驟前筆者原無設定RichChen的password會有不知密碼無法登入的問題，設定完後便可解決!
----
-![8](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-8.PNG)
->利用本機進行登入
----
-![9](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-9.PNG)
->安裝Winscp並登入
----
-![10](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-10.PNG)
->將helloworld.txt這個檔案傳到RickChen中
----
-![11](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-11.PNG)
->helloworld中的內容
----
-![12](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-12.PNG)
->傳送後多了helloworld.txt之檔案，利用cat開啟後可發現內文符合!說明傳送成功且正確
+```
+systemctl stop NetworkManager
+systemctl disable NetworkManager
+systemctl start network
+systemctl status network
+```
+```ifconfig```
+ip 192.168.239.139 netmask 255.255.255.0  broadcast 192.168.239.255
+```ip route show```
+default via 192.168.239.2 
 
-### no pass word login 
-## ssh 免密碼登入
-![week3-1](https://user-images.githubusercontent.com/62127656/113002220-2668d280-91a4-11eb-9722-6622aec1f1a5.PNG)
-![week3-2](https://user-images.githubusercontent.com/62127656/113002238-2b2d8680-91a4-11eb-8a7b-50691312f146.PNG)
-![week3-3](https://user-images.githubusercontent.com/62127656/113002252-2d8fe080-91a4-11eb-9335-3df5466b2d05.PNG)
-![week3-4](https://user-images.githubusercontent.com/62127656/113002267-308ad100-91a4-11eb-9798-ec2e4f6a3976.PNG)
-![week3-5](https://user-images.githubusercontent.com/62127656/113002279-3385c180-91a4-11eb-892c-218c6c5f8fd4.PNG)
+
+```ifconfig```記ip netmask
+
+![image](https://user-images.githubusercontent.com/62127656/147729727-4ba7fa26-6874-4856-84a1-eeac1a390cc7.png)
+
+``` ip route show```記內定路由ip
+
+![image](https://user-images.githubusercontent.com/62127656/147729749-bbcb49d0-8d9f-41a9-8c7a-8d019a82bce6.png)
+
+![image](https://user-images.githubusercontent.com/62127656/147735783-da9278d0-ac20-45e2-9ea4-79ea33cfa8d3.png)
+* 修改dhcp增加ipaddr,netmask,gatway,:wq!,systemctl restart network
+
+## ssh: scp&no password login
+![6](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-6.PNG)
+
+```sudo yum install openssh-server```
+
+![image](https://user-images.githubusercontent.com/62127656/147726971-d46f197c-beec-49f1-b474-ce3bab1ebf0b.png)
+
+```ifconfig```
+
+![image](https://user-images.githubusercontent.com/62127656/147727008-10297aa6-b675-497b-85c7-879d39ead80f.png)
+
+```ssh xxx@xxx.xxx.xxx.x```
+```enter passord```
+
+![image](https://user-images.githubusercontent.com/62127656/147729387-862f3772-0402-4615-81f2-656e11c915c9.png)
+
+
+```ssh-keygen```
+```scp /home/rick1010/.ssh/id_rsa.pub rick1010@192.168.239.140:/home/rick1010/.ssh/authorized_keys```
+```ssh rick1010@192.168.239.140```顯示成功
+
+
 
 ## samba
 ## nfs
