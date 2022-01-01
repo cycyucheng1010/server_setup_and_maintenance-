@@ -99,7 +99,7 @@ yum install mariadb-server mariadb
 <?php
 $servername="localhost";
 $username="root";
-$password="123456";
+$password="rick1010";
 $dbname="testdb";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
