@@ -41,7 +41,7 @@ GATEWAY=10.0.2.2
 ![image](https://user-images.githubusercontent.com/62127656/147851495-ad2c4929-a05e-4212-b620-1d22f0ca5d80.png)
 ![image](https://user-images.githubusercontent.com/62127656/147851509-5848628f-9f2d-49c2-890e-43f46da3d92e.png)
 
-* ping tw.yahoo.com and systemctl status  NetworkManager
+* ```ping tw.yahoo.com``` && ```systemctl status  NetworkManager```
 
 ![image](https://user-images.githubusercontent.com/62127656/147851535-51fc98f3-dcc9-4653-b760-030b5aabe56c.png)
 ![image](https://user-images.githubusercontent.com/62127656/147851551-a810da40-80e1-4f18-ab23-f10876e74756.png)
