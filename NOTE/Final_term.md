@@ -1,4 +1,7 @@
 # server setup and maintenance final term 
+![image](https://user-images.githubusercontent.com/62127656/147848323-079665a4-d060-4c3d-83bb-bcec88e969e9.png)
+>網路問題重新連線
+
 ## Centos installation
 * iso下載 (CentOS-7-x86_64-DVD-2009.iso)
 
