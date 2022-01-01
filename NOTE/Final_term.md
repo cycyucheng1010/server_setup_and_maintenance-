@@ -8,20 +8,20 @@
 ![1](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-1.PNG)
 ![2](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-2.PNG)
 ## From NatworkManager to network
-* ```ifconfig enp0s3```看enp0s3的ip netmask broadcast
+1. ```ifconfig enp0s3```看enp0s3的ip netmask broadcast
 
 ![image](https://user-images.githubusercontent.com/62127656/147851039-48b5204f-a13b-46ea-9edd-e532a4f17c04.png)
 
 
-* ```ip route show```看default route 
+2. ```ip route show```看default route 
 
 ![image](https://user-images.githubusercontent.com/62127656/147851033-fc0e4cc9-9465-4108-b02a-6944cfa4f81b.png)
-* NetworkManager&network一個啟動另外一個就要關閉
+3. NetworkManager&network一個啟動另外一個就要關閉
   1. ```systemctl stop NetworkManager ```
   2. ```systemctl disable NetworkManager```
   3. ```systemctl start network```
   4. ```systemctl status network```  
-* 設定enp0s3的設定檔```gedit /etc/sysconfig/network-scripts/ifcfg-enp0s3```
+4. 設定enp0s3的設定檔```gedit /etc/sysconfig/network-scripts/ifcfg-enp0s3```
 ```
 TYPE="Ethernet"
 BOOTPROTO=static
@@ -35,13 +35,13 @@ GATEWAY=10.0.2.2
 ```
 ![image](https://user-images.githubusercontent.com/62127656/147851449-db8e8ff2-0e0a-4dec-86a4-b311529d33ee.png)
 
-* 重啟網路 ```systemctl restart network```
-* 查看網路 ```ifconfig``` ```ip route show```
+5. 重啟網路 ```systemctl restart network```
+6. 查看網路 ```ifconfig``` ```ip route show```
 
 ![image](https://user-images.githubusercontent.com/62127656/147851495-ad2c4929-a05e-4212-b620-1d22f0ca5d80.png)
 ![image](https://user-images.githubusercontent.com/62127656/147851509-5848628f-9f2d-49c2-890e-43f46da3d92e.png)
 
-* ```ping tw.yahoo.com``` && ```systemctl status  NetworkManager```
+7. ```ping tw.yahoo.com``` && ```systemctl status  NetworkManager```
 
 ![image](https://user-images.githubusercontent.com/62127656/147851535-51fc98f3-dcc9-4653-b760-030b5aabe56c.png)
 ![image](https://user-images.githubusercontent.com/62127656/147851551-a810da40-80e1-4f18-ab23-f10876e74756.png)
@@ -49,28 +49,53 @@ GATEWAY=10.0.2.2
 ## ssh: scp&no password login
 ![6](https://github.com/cycyucheng1010/NQU/blob/main/Centos7/week2-6.PNG)
 
-```sudo yum install openssh-server```
+1. 安裝ssh ```sudo yum install openssh-server```
 
 ![image](https://user-images.githubusercontent.com/62127656/147726971-d46f197c-beec-49f1-b474-ce3bab1ebf0b.png)
 
-```ifconfig```
+2. 確認ip```ifconfig```
 
 ![image](https://user-images.githubusercontent.com/62127656/147727008-10297aa6-b675-497b-85c7-879d39ead80f.png)
 
-```ssh xxx@xxx.xxx.xxx.x```
-```enter passord```
+3. 登入測試```ssh xxx@xxx.xxx.xxx.x``` ```enter passord```
 
 ![image](https://user-images.githubusercontent.com/62127656/147729387-862f3772-0402-4615-81f2-656e11c915c9.png)
 
 
-```ssh-keygen```
-```scp /home/rick1010/.ssh/id_rsa.pub rick1010@192.168.239.140:/home/rick1010/.ssh/authorized_keys```
-```ssh rick1010@192.168.239.140```顯示成功
+4. ssh keys```ssh-keygen```
+5. 將key傳到另一台電腦```scp /home/rick1010/.ssh/id_rsa.pub rick1010@192.168.239.140:/home/rick1010/.ssh/authorized_keys```
+6. 無密碼登入並成功```ssh rick1010@192.168.239.140```
 
 
 
 ## samba
 ## nfs
+1. 兩台都root```su```
+2. 副機ifconfig確認ip然後本機ping副機```ping 192.168.56.108```
+3. 副機建立資料夾 mynfs ```cd/``` ``` mkdir mynfs```
+4. 主機建立資料夾mydata ```cd/``` ```mkdir -p /mydata
+5. 主副機確定防火牆關閉 ```getenforce```理論上要是disabled ```gedit /etc/selinux/config```改成這個SELINUX=Disabled，然後重新開機
+6. 主機副機安裝nfs ```yum install -y nfs-utils```
+7. 副機: 決定規則(檔案內容 分享哪個資料夾 分享給誰 以下是所有節點 可讀可寫)```gedit /etc/exports``````/mynfs 192.168.56.101/24(rw,sync,no_root_squash,no_all_squash)```
+8. 副機:啟動rpc bind跟nfs```systemctl start rpcbind``````systemctl start nfs-server```
+9. 副機: ```rpcinfo -p``` ```exportfs -r``` ```exportfs```
+
+![image](https://user-images.githubusercontent.com/62127656/147852237-ad533497-1acc-4413-ab13-d28d6ec6b5ec.png)
+>副機成功共享
+
+11. 主機: ```systemctl start rpcbind``` ```systemctl status rpcbind``` showmount -e 192.168.56.102```
+
+![image](https://user-images.githubusercontent.com/62127656/147852364-9019c877-5755-4c54-b174-a6bc04931aba.png)
+>主機成功看到
+
+12. 主機:與副機掛載```mount -t nfs 192.168.56.102:/mynfs /mydata```
+13. 副機: ```cd /mynfs``` ```chmod 777 /mynfs``` ```touch  {a..d}``` ```echo "hi" > hi.txt```
+14. 主機: ```cd /mydata```
+
+![image](https://user-images.githubusercontent.com/62127656/147852483-7ba42601-e7ab-4942-a479-9e29ca44fbbf.png)
+>可看見檔案
+
+15. 主機: 拿掉掛載先離開掛載資料夾 ```cd ..``` ```umount /mydata```
 ## vsftp
 ## haproxy
 ## www: php&mysql&virtualhost
