@@ -393,4 +393,21 @@ service telnet
 
 
 ## DHCP & NAT
-
+* 主機 副機(需新增名為a的網路卡，選擇內部網路)
+1. 副機: 關閉其他網路，只留名為a的網路卡
+2. 主機: ```ifconfig``` ```ip addr add 192.168.10.1/24 brd + dev enp0s9``` 
+3. 主機: ```ifconfig enp0s9 ``` 可得192.168.10.1的網路ip
+4. 副機: 關閉網路管理員並清除ip```systemctl stop NetworkManager``` ```ifconfig enp0s3 0```
+5. 主機: ```yum install dhcp``` ```gedit /etc/dhcp/dhcpd.conf```
+```
+subnet 192.168.10.0 netmask 255.255.255.0{
+   range 192.168.10.100 192.168.10.200;
+   option routers 192.167.10.1;
+   option domain-name-servers 8.8.8.8;
+   default-lease-time 600;
+   max-lease-time 7200;
+}
+```
+6. 重啟```systemctl restart dhcpd.service``` 
+7. 出錯的話做這步，不然就跳過```ip addr add 192.168.10.1/24 brd + dev enp0s9``` ```systemctl start dhcpd.service```
+8. 
