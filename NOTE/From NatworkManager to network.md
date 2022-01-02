@@ -1,3 +1,4 @@
+## From NatworkManager to network
 1. ```ifconfig enp0s3```看enp0s3的ip netmask broadcast
 
 ![image](https://user-images.githubusercontent.com/62127656/147851039-48b5204f-a13b-46ea-9edd-e532a4f17c04.png)
