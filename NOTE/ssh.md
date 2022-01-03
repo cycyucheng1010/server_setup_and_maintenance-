@@ -15,5 +15,5 @@
 
 
 4. ssh keys```ssh-keygen```
-5. 將key傳到另一台電腦```scp /home/rick1010/.ssh/id_rsa.pub rick1010@192.168.239.140:/home/rick1010/.ssh/authorized_keys```
+5. 將key傳到另一台電腦```scp /home/rick1010/.ssh/id_rsa rick1010@192.168.239.140:/home/rick1010/.ssh/authorized_keys```
 6. 無密碼登入並成功```ssh rick1010@192.168.239.140```
