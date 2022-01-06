@@ -241,6 +241,7 @@ yum install mariadb-server mariadb
 ```systemctl start mariadb.service```
 * 查看mariadb的狀態
 ```systemctl status mariadb```
+*  一開始sql```mysql_secure_installation```
 * database setting
   1. enter (keyboard)
   2. y 
