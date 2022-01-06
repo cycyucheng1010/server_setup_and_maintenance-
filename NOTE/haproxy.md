@@ -34,8 +34,8 @@ frontend http_front
 
 backend http_back
   balance roundrobin
-  server server_name1 192.168.56.102:8080 check
-  server server_name2 192.168.56.104:8080 check
+  server server_name1 192.168.56.102:80 check
+  server server_name2 192.168.56.104:80 check
 
 ```
 8. 查看ip 得到結果
