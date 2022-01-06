@@ -14,7 +14,7 @@
 
 ![image](https://user-images.githubusercontent.com/62127656/147878419-c71b44e9-b765-4302-9ff5-9dcb5fd9281a.png)
 
-8. nslookup www.pchome.com.tw 192.168.56.101
+8. ```nslookup www.pchome.com.tw 192.168.56.101```
 
 ![image](https://user-images.githubusercontent.com/62127656/147878727-a99f5812-d50a-4d1b-b19b-f52c4b1b2382.png)
 
